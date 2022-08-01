@@ -1,0 +1,22 @@
+.Container {
+  width: min(100% - 32px, 1248px);
+  margin-inline: auto;
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+}
+
+@media (max-width: 1023px) {
+  .Container {
+    width: min(100% - 16px);
+    gap: 8px;
+  }
+}
+
+@media (max-width: 767px) {
+  .Container {
+    width: 100%;
+    gap: 0;
+    flex-direction: column;
+  }
+}
