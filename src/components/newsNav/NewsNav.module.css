@@ -1,0 +1,97 @@
+.Nav {
+  width: 64px;
+  height: 305px;
+  position: sticky;
+  top: 112px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.HartButton:hover {
+  background-color: rgba(241, 178, 178, 0.2);
+  color: red;
+  transition: 200ms;
+}
+
+.UnicornButton:hover {
+  background-color: rgba(50, 173, 76, 0.2);
+  color: rgb(10, 119, 0);
+  transition: 200ms;
+}
+
+.SaveButton:hover {
+  background-color: rgba(73, 50, 173, 0.2);
+  color: rgb(72, 70, 197);
+  transition: 200ms;
+}
+
+.MoreButton:hover {
+  background-color: rgba(148, 148, 148, 0.2);
+  color: rgb(0, 0, 0);
+  transition: 200ms;
+}
+
+.IconContainer {
+  width: 64px;
+  height: 61px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 8px 0;
+  cursor: pointer;
+}
+
+.IconContainer p {
+  font-size: 14px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: rgb(59, 59, 59);
+}
+
+.HartButton,
+.UnicornButton,
+.SaveButton,
+.MoreButton {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  color: rgb(92, 92, 92);
+}
+
+.MoreButton {
+  margin-top: 8px;
+}
+
+@media (max-width: 767px) {
+  .Nav {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    height: var(--nav-haight);
+    background-color: white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    -webkit-box-shadow: 0px -1px 5px 0px rgba(102, 102, 102, 0.36);
+    box-shadow: 0px -1px 5px 0px rgba(102, 102, 102, 0.36);
+  }
+
+  .IconContainer {
+    flex-direction: row;
+  }
+
+  .IconContainer p {
+    padding-left: 5px;
+  }
+}

@@ -1,15 +1,7 @@
-.Nav {
-  background-color: red;
-  width: 64px;
-  height: 150px;
-  position: sticky;
-  top: 66px;
-}
-
 .Content {
   background-color: rgb(7, 73, 131);
   flex: 7;
-  height: 1500px;
+  min-height: 1500px;
 }
 
 .Info {
@@ -24,14 +16,5 @@
 @media (max-width: 1023px) {
   .Info {
     display: none;
-  }
-}
-
-@media (max-width: 767px) {
-  .Nav {
-    height: var(--nav-haight);
-    position: fixed;
-    bottom: 0;
-    width: 100%;
   }
 }

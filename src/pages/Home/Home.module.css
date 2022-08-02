@@ -1,0 +1,17 @@
+.Nav {
+  width: 240px;
+  background-color: red;
+  height: 50px;
+}
+
+.Content {
+  height: 1500px;
+  background-color: blue;
+  flex: 2;
+}
+
+.Info {
+  height: 500px;
+  background-color: aqua;
+  flex: 1;
+}
