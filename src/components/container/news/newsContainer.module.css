@@ -10,6 +10,7 @@
   .Container {
     width: min(100% - 16px);
     gap: 8px;
+    padding: 8px 0;
   }
 }
 
@@ -18,5 +19,6 @@
     width: 100%;
     gap: 0;
     flex-direction: column;
+    padding: 0;
   }
 }

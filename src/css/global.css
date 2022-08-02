@@ -5,10 +5,17 @@
 
 :root {
   --nav-haight: 56px;
+  --grey-900: 23, 23, 23;
+  --card-border: rgba(var(--grey-900), 0.1);
 }
 
 body {
   background-color: #f5f5f5;
+}
+
+img {
+  display: block;
+  width: 100%;
 }
 
 header {
