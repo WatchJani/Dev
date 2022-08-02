@@ -95,7 +95,7 @@ const NewsContent = () => {
                         P.S. Want to get a sense of the benefits of Redis before you get started? Take a look at this 6 minute video:
                     </b>
                 </p>
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/vyxdC1qK4NE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/vyxdC1qK4NE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     )
