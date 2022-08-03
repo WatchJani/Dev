@@ -18,7 +18,36 @@ const NewsInfo = () => {
                 <button className={Styled.Contribute}>Contribute to Forem</button>
             </div>
             <div className={Styled.MorePost}>
-
+                <div className={Styled.Title}>
+                    <h3>
+                        More from <span>The DEV Team</span>
+                    </h3>
+                </div>
+                <div className={Styled.More}>
+                    <p className={Styled.TitleTag}>Redis x DEV Hackathon Help Thread</p>
+                    <div className={Styled.Tag}>
+                        <p>#redishackathon</p>
+                        <p>#redis</p>
+                        <p>#help</p>
+                    </div>
+                </div>
+                <div className={Styled.More}>
+                    <p className={Styled.TitleTag}>Community Discussion Thread — Redis x DEV Hackathon</p>
+                    <div className={Styled.Tag}>
+                        <p>#discuss</p>
+                        <p>#redishackathon</p>
+                        <p>#redis</p>
+                    </div>
+                </div>
+                <div className={Styled.More}>
+                    <p className={Styled.TitleTag}>Follow Friday: UX/UI Edition (29 July 2022)</p>
+                    <div className={Styled.Tag}>
+                        <p>#meta</p>
+                        <p>#ux</p>
+                        <p>#ui</p>
+                        <p>#design</p>
+                    </div>
+                </div>
             </div>
         </div>
     )
