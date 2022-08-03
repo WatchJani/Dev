@@ -95,7 +95,15 @@ const NewsContent = () => {
                         P.S. Want to get a sense of the benefits of Redis before you get started? Take a look at this 6 minute video:
                     </b>
                 </p>
-                <iframe src="https://www.youtube.com/embed/vyxdC1qK4NE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/vyxdC1qK4NE" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                <blockquote>
+                    <b>
+                        From now through August 29th, 2022, DEV has partnered up with Redis for a community hackathon that will give you the chance to build a new application using Redis or simplify a complex backend.
+                        Anyone who submits a valid project (including an official submission post, published on DEV) will be automatically entered to win a variety of fantastic prizes (including up to $2,000 USD).
+                    </b>
+                </blockquote>
+                <h3>Project Categories</h3>
+                <p>The Redis Hackathon on DEV is calling for projects in the following four categories:</p>
             </div>
         </div>
     )

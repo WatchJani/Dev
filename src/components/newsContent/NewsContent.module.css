@@ -8,6 +8,9 @@
 
 .Banner {
   border-radius: 7px 7px 0 0;
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 16/6.72;
 }
 
 .PostInfo {
@@ -29,7 +32,8 @@
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.Post p {
+.Post p,
+.Post blockquote {
   margin-bottom: 20px;
   font-size: 20px;
   color: #171717;
@@ -48,14 +52,15 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 16px;
+
   line-height: 24px;
 }
 
 .Tags div {
   border-radius: 8px;
   padding: 4px 8px;
-  box-sizing: border-box;
   cursor: pointer;
+  border: 1px solid transparent;
 }
 
 .Tags div:hover {
@@ -146,7 +151,8 @@ b {
     line-height: 28.125px;
   }
 
-  .Post p {
+  .Post p,
+  .Post blockquote {
     margin-bottom: 18px;
     font-size: 18px;
     line-height: 27px;
