@@ -147,8 +147,8 @@
   padding-left: 4px;
 }
 
-/* @media (max-width: 1023px) {
-  .Sticky {
-    position: static;
+@media (max-width: 1023px) {
+  .Info {
+    z-index: 1;
   }
-} */
+}
