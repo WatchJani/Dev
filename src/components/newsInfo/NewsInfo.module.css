@@ -1,6 +1,9 @@
 .Info {
   flex: 3;
-  height: 100vh;
+  display: unset
+}
+
+.Sticky{
   position: sticky;
   top: 66px;
 }
