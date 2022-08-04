@@ -121,29 +121,28 @@
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 20px;
   padding: 16px;
-  border-top: 1px solid rgb(240, 240, 240);
+  border-top: 1px solid rgb(245, 245, 245);
 }
 
-.More div{
-    font-size: 14px;
-    display: flex;
-    color: #717171;
-    flex-wrap: wrap;
+.More div {
+  font-size: 14px;
+  display: flex;
+  color: #717171;
+  flex-wrap: wrap;
 }
-
 
 .Title span {
   color: #3b49df;
 }
 
-.TitleTag{
-    font-size: 16px;
-    padding-bottom: 6px;
-    margin-top: 5px;
+.TitleTag {
+  font-size: 16px;
+  padding-bottom: 6px;
+  margin-top: 5px;
 }
 
-.Tag p{
-    padding-left: 4px;
+.Tag p {
+  padding-left: 4px;
 }
 
 @media (max-width: 1023px) {

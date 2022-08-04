@@ -91,6 +91,14 @@
     flex-direction: row;
   }
 
+  .MoreButton {
+    margin: 0;
+  }
+
+  .IconContainer{
+    width: auto;
+  }
+
   .IconContainer p {
     padding-left: 5px;
   }
