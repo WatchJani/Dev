@@ -1,7 +1,6 @@
 .Content {
   background-color: white;
   flex: 7;
-  min-height: calc(100vh - 66px);
   border-radius: 7px;
   box-shadow: 0 0 0 1px var(--card-border);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -129,11 +128,10 @@ b {
 }
 
 @media (max-width: 1023px) {
-
-  .Content{
+  .Content {
     flex: 1;
   }
-  
+
   .PostInfo h1 {
     font-size: 36px;
     line-height: 45px;

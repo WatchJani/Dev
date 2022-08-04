@@ -1,9 +1,8 @@
 .Info {
   flex: 3;
-  display: unset
 }
 
-.Sticky{
+.Sticky {
   position: sticky;
   top: 66px;
 }
@@ -148,8 +147,8 @@
   padding-left: 4px;
 }
 
-@media (max-width: 1023px) {
-  .Info {
-    display: none;
+/* @media (max-width: 1023px) {
+  .Sticky {
+    position: static;
   }
-}
+} */

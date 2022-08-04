@@ -1,0 +1,10 @@
+.Flex {
+  display: flex;
+  gap: 16px;
+}
+
+@media (max-width: 1023px) {
+  .Flex {
+    flex-direction: column;
+  }
+}
