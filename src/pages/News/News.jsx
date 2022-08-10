@@ -13,7 +13,6 @@ const News = () => {
                 <NewsInfo />
             </div>
         </NewsContainer>
-
     )
 }
 
