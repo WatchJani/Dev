@@ -14,3 +14,22 @@
   flex: 1;
 }
 
+@media (max-width: 1023px) {
+  .Info {
+    display: none;
+  }
+
+  .Content {
+    flex: 5;
+  }
+
+  .Nav {
+    flex: 2.01;
+  }
+}
+
+@media (max-width: 767px) {
+  .Nav {
+    display: none;
+  }
+}
