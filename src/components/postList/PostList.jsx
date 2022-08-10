@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { getPost } from '../../services/posts'
 import { useAsync } from '../../hooks/useAsync'
 import Styled from "./PostList.module.css"
+import SkeletonLoading from '../SkeletonLoading/SkeletonLoading'
 
 
 const PostList = () => {
@@ -10,7 +11,7 @@ const PostList = () => {
 
     const { loading, error, value: posts } = useAsync(getPost)
 
-    if (loading) return <h1>loading</h1>
+    if (loading) return <SkeletonLoading />
 
     if (error) return <p>{error}</p>
 
