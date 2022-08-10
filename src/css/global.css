@@ -3,6 +3,12 @@
   margin: 0;
 }
 
+
+::selection {
+  color: rgb(211, 211, 211);
+  background-color: rgb(70, 70, 70);
+}
+
 :root {
   --nav-haight: 56px;
   --grey-900: 23, 23, 23;
