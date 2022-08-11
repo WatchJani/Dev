@@ -34,7 +34,7 @@ const NewsContent = () => {
                     </div>
                     <div className={Styled.PostedText}>
                         <p><b>{post.userId.userName}</b> for <span>{post.userId.teamId.name}</span></p>
-                        <p className={Styled.PostDate}>Posted on {getMonth(post.createAt)} {(new Date(post.createAt)).getDay()}</p>
+                        <p className={Styled.PostDate}>Posted on {getMonth(post.createAt)} {(new Date(post.createAt)).getDate()}</p>
                     </div>
                 </div>
 

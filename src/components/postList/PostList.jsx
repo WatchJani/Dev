@@ -34,7 +34,7 @@ const PostList = () => {
                                     <img className={Styled.PostListImageProfil} src="./images/profil.webp" alt="" />
                                     <div className={Styled.FlexDirection}>
                                         <button>{post.userId.userName}</button>
-                                        <time>{getMonth(post.createAt)} {(new Date(post.createAt)).getDay()} ({formatDistanceToNow(new Date(post.createAt), { addSuffix: true })})</time>
+                                        <time>{getMonth(post.createAt)} {(new Date(post.createAt)).getDate()} ({formatDistanceToNow(new Date(post.createAt), { addSuffix: true })})</time>
                                     </div>
                                 </div>
                                 <div className={Styled.CardInfoContainer}>
