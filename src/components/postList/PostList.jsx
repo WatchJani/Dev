@@ -1,15 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { getPost } from '../../services/posts'
+import { getPosts } from '../../services/posts'
 import { useAsync } from '../../hooks/useAsync'
 import Styled from "./PostList.module.css"
 import SkeletonLoading from '../SkeletonLoading/SkeletonLoading'
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
 
 const PostList = () => {
 
+    function getMonth(Month) {
+        const month = (new Date(Month)).getMonth()
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Avg", "Sep", "Oct", "Nov", "Dec"]
 
-    const { loading, error, value: posts } = useAsync(getPost)
+        return months[month]
+    }
+
+    const { loading, error, value: posts } = useAsync(getPosts)
+
 
     if (loading) return <SkeletonLoading />
 
@@ -25,8 +33,8 @@ const PostList = () => {
                                 <div className={Styled.PostListProfilInfo}>
                                     <img className={Styled.PostListImageProfil} src="./images/profil.webp" alt="" />
                                     <div className={Styled.FlexDirection}>
-                                        <button>John Vester</button>
-                                        <time>Aug 10 (6 hours ago)</time>
+                                        <button>{post.userId.userName}</button>
+                                        <time>{getMonth(post.createAt)} {(new Date(post.createAt)).getDay()} ({formatDistanceToNow(new Date(post.createAt), { addSuffix: true })})</time>
                                     </div>
                                 </div>
                                 <div className={Styled.CardInfoContainer}>

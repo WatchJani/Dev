@@ -10,6 +10,8 @@ import { News, Home } from "./pages/index"
 
 import ScrollToTop from "./helper/ScrollToTop";
 
+import PostProvider from "./contexts/PostContext";
+
 function App() {
   return (
     <BrowserRouter>
@@ -17,7 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="/:news" element={<News />} />
+            <Route path="/:news" element={<PostProvider><News /></PostProvider>} />
             {/*<Route path="teams" element={<Teams />}>
             <Route path=":teamId" element={<Team />} />
             <Route path="new" element={<NewTeamForm />} />
