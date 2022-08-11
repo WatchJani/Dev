@@ -4,19 +4,19 @@ const SkeletonLoading = () => {
     return (
         <>
             {
-                [1, 2, 3, 4, 5].map(() => {
+                [1, 2, 3, 4, 5].map((index) => {
                     return (
-                        <div className="box-skeleton">
-                            <div class="header">
-                                <div class="image skeleton"></div>
-                                <div class="text1">
-                                    <div class="skeleton skeleton-text"></div>
-                                    <div class="skeleton skeleton-text"></div>
+                        <div className="box-skeleton" key={index}>
+                            <div className="header">
+                                <div className="image skeleton"></div>
+                                <div className="text1">
+                                    <div className="skeleton skeleton-text"></div>
+                                    <div className="skeleton skeleton-text"></div>
                                 </div>
                             </div>
-                            <div class="skeleton skeleton-text"></div>
-                            <div class="skeleton skeleton-text"></div>
-                            <div class="skeleton skeleton-text"></div>
+                            <div className="skeleton skeleton-text"></div>
+                            <div className="skeleton skeleton-text"></div>
+                            <div className="skeleton skeleton-text"></div>
                         </div>
                     )
                 })
