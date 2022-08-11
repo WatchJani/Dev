@@ -7,7 +7,7 @@ const Header = () => {
             <div className={Styled.Container}>
                 <div className={Styled.Flex}>
                     <div className={Styled.Logo}>
-                        JANI
+                        JAN
                     </div>
                     <div className={Styled.Search}>
                         <input placeholder="Search..." type="search" name="" id="" />
