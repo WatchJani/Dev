@@ -32,6 +32,7 @@
   background-color: transparent;
   border: none;
   padding: 4px 4px 4px 0;
+  width: max-content;
 }
 
 .FlexDirection {

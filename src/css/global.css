@@ -17,6 +17,8 @@
   --content-rhythm: var(--content-font-size);
   --content-font-size: var(--fs-l);
   --fs-l: 1.125rem;
+  --base-20: #d6d6d7;
+  --button-outlined-border: var(--base-20);
 }
 
 /* loading sceleton */
@@ -150,6 +152,43 @@ footer {
   background-color: #e2e3f3;
   text-decoration: underline;
   transition: 200ms;
+}
+
+.ck-editor__editable_inline {
+  min-height: 400px;
+}
+
+div[editable] {
+  border-color: #a0c0e4;
+  border-radius: 2px;
+  outline: none;
+}
+
+input[type="file"] {
+  font-size: 0;
+}
+
+.ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
+  border-color: transparent;
+}
+
+.ck.ck-editor__main>.ck-editor__editable:focus {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+
+.ck.ck-toolbar .ck.ck-toolbar__separator{
+     align-self: unset;
+}
+
+.ck.ck-editor__top .ck-sticky-panel .ck-toolbar {
+  border-width: 0px;
+}
+
+
+::file-selector-button {
+  font-size: initial;
 }
 
 @media (max-width: 1023px) {

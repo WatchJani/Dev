@@ -66,32 +66,38 @@ const NewPost = () => {
 
     return (
         <form onSubmit={Submit}>
-            <label htmlFor="banner">Banner</label>
-            <input type="file" name="banner" id="banner" onChange={newValue} />
+            <div className={Styled.Container}>
+                <label className={Styled.UploadFile} htmlFor="banner">Add a cover image</label>
+                <input style={{ display: "none" }} type="file" name="banner" id="banner" onChange={newValue} />
 
-            <label htmlFor="title">Title</label>
-            <input type="text" name="title" id="title" onChange={newValue} />
+                <input type="text" name="title" placeholder="New post title hear..." className={Styled.Title} onChange={newValue} />
 
-            <CKEditor
-                config={{ extraPlugins: [MyUploadAdapterPlugin], }}
-                editor={ClassicEditor}
-                onReady={editor => {
-                    // You can store the "editor" and use when it is needed.
-                    // console.log('Editor is ready to use!', editor);
-                }}
-                onChange={(event, editor) => {
-                    const post = editor.getData();
-                    setData({ ...data, post: post })
-                    // console.log({ event, editor, data });
-                }}
-                onBlur={(event, editor) => {
-                    // console.log('Blur.', editor);
-                }}
-                onFocus={(event, editor) => {
-                    // console.log('Focus.', editor);
-                }}
-            />
-            <button>Pošalji</button>
+                <div className={Styled.Editor}>
+                    <CKEditor
+                        config={{ extraPlugins: [MyUploadAdapterPlugin], }}
+                        editor={ClassicEditor}
+                        onReady={editor => {
+                            // You can store the "editor" and use when it is needed.
+                            // console.log('Editor is ready to use!', editor);
+                        }}
+                        onChange={(event, editor) => {
+                            const post = editor.getData();
+                            setData({ ...data, post: post })
+                            // console.log({ event, editor, data });
+                        }}
+                        onBlur={(event, editor) => {
+                            // console.log('Blur.', editor);
+                        }}
+                        onFocus={(event, editor) => {
+                            // console.log('Focus.', editor);
+                        }}
+                    />
+                </div>
+            </div>
+            <div className={Styled.Center}>
+                <button className={Styled.Publish}>Publish</button>
+            </div>
+
         </form>
     )
 }
