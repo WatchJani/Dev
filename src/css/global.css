@@ -109,6 +109,13 @@ blockquote {
   margin-top: 20px;
 }
 
+tr:nth-child(even) {
+  background: rgb(238, 238, 238);
+}
+tr:nth-child(odd) {
+  background: #fff;
+}
+
 table {
   border-collapse: collapse;
   margin: 20px auto;
@@ -121,7 +128,8 @@ td {
 }
 
 th,
-th {
+td {
+  font-weight: 500;
   padding: 10px;
 }
 
