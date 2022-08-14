@@ -109,6 +109,22 @@ blockquote {
   margin-top: 20px;
 }
 
+table {
+  border-collapse: collapse;
+  margin: 20px auto;
+}
+
+table,
+th,
+td {
+  border: 1px solid;
+}
+
+th,
+th {
+  padding: 10px;
+}
+
 header {
   width: 100%;
   height: var(--nav-haight);
@@ -202,5 +218,4 @@ input[type="file"] {
     font-size: 14px;
     line-height: 21px;
   }
-
 }
