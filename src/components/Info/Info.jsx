@@ -1,5 +1,43 @@
 import Styled from "./Info.module.css"
 
+
+const data = [
+    {
+        title: "#meta",
+        card: [
+            {
+                text: "Redis x DEV Hackathon Help Thread",
+                comments: "35 comments"
+            },
+            {
+                text: "Community Discussion Thread — Redis x DEV Hackathon",
+                comments: "68 comments"
+            },
+            {
+                text: "Follow Friday: UX/UI Edition (29 July 2022)",
+                comments: "89 comments"
+            }
+        ]
+    },
+    {
+        title: "#discuss",
+        card: [
+            {
+                text: "We are trending on Github, This is how we did it 🤯",
+                comments: "16 comments"
+            },
+            {
+                text: "Hello, World!",
+                comments: "1 comments"
+            },
+            {
+                text: "What text editor should I use? ⌨️",
+                comments: "2 comments"
+            }
+        ]
+    }
+]
+
 const Info = () => {
     return (
         <>
@@ -13,32 +51,23 @@ const Info = () => {
                 <a href="https://dev.to/devteam/announcing-the-redis-hackathon-on-dev-3248">→ Discover new chances to win & participate</a>
             </div>
 
-
-            <div className={Styled.MorePost}>
-                <div className={Styled.Title}>
-                    <h3>
-                        #meta
-                    </h3>
-                </div>
-                <div className={Styled.More}>
-                    <p className={Styled.TitleTag}>Redis x DEV Hackathon Help Thread</p>
-                    <div className={Styled.Tag}>
-                        <p>35 comments</p>
+            {data.map(({ title, card }) =>
+                <div className={Styled.MorePost}>
+                    <div className={Styled.Title}>
+                        <h3>
+                            {title}
+                        </h3>
                     </div>
+                    {card.map(({ text, comments }) =>
+                        <div className={Styled.More}>
+                            <p className={Styled.TitleTag}>{text}</p>
+                            <div className={Styled.Tag}>
+                                <p>{comments}</p>
+                            </div>
+                        </div>
+                    )}
                 </div>
-                <div className={Styled.More}>
-                    <p className={Styled.TitleTag}>Community Discussion Thread — Redis x DEV Hackathon</p>
-                    <div className={Styled.Tag}>
-                        <p>68 comments</p>
-                    </div>
-                </div>
-                <div className={Styled.More}>
-                    <p className={Styled.TitleTag}>Follow Friday: UX/UI Edition (29 July 2022)</p>
-                    <div className={Styled.Tag}>
-                        <p>89 comments</p>
-                    </div>
-                </div>
-            </div>
+            )}
         </>
     )
 }
