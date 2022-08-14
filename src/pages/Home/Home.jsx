@@ -1,22 +1,19 @@
 import Styled from "./Home.module.css"
 import { NewsContainer } from "../../components/container/news/newsContainer"
-import PostList from "../../components/postList/PostList"
-import PhoneMenu from "../../components/navigation/Menu"
+import { PostList, Menu, Info } from "../../components/index"
 
 const Home = () => {
-
-
 
     return (
         <NewsContainer>
             <nav className={Styled.Nav}>
-                <PhoneMenu/>
+                <Menu />
             </nav>
             <div className={Styled.Content}>
                 <PostList />
             </div>
             <div className={Styled.Info}>
-                a
+                <Info />
             </div>
         </NewsContainer>
     )

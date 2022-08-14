@@ -1,6 +1,5 @@
 .Nav {
   width: 240px;
-  
 }
 
 .Content {
@@ -8,8 +7,6 @@
 }
 
 .Info {
-  height: 500px;
-  background-color: aqua;
   flex: 1;
 }
 

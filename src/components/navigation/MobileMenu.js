@@ -5,7 +5,6 @@ const PhoneMenu = ({ menuOpen }) => {
 
     return (
         <div className={Styled.FullScreenMenu}>
-
             <div className={Styled.MenuItems}>
                 <div className={Styled.TitleMenu}>
                     <h2>DEV Community</h2>

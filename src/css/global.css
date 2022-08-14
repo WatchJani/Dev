@@ -168,24 +168,22 @@ input[type="file"] {
   font-size: 0;
 }
 
-.ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
+.ck.ck-editor__main > .ck-editor__editable:not(.ck-focused) {
   border-color: transparent;
 }
 
-.ck.ck-editor__main>.ck-editor__editable:focus {
+.ck.ck-editor__main > .ck-editor__editable:focus {
   border-color: transparent;
   box-shadow: none;
 }
 
-
-.ck.ck-toolbar .ck.ck-toolbar__separator{
-     align-self: unset;
+.ck.ck-toolbar .ck.ck-toolbar__separator {
+  align-self: unset;
 }
 
 .ck.ck-editor__top .ck-sticky-panel .ck-toolbar {
   border-width: 0px;
 }
-
 
 ::file-selector-button {
   font-size: initial;
@@ -204,4 +202,5 @@ input[type="file"] {
     font-size: 14px;
     line-height: 21px;
   }
+
 }
