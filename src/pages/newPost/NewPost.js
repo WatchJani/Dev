@@ -52,11 +52,12 @@ const NewPost = () => {
         // setLoading(true);
         const formData = new FormData();
 
-        console.log(data)
+
 
         formData.append("title", data.title)
         formData.append("post", data.post)
         formData.append("banner", data.banner)
+
 
         axios.post("post/62f284cf89f2fbbd667ac2f6", formData).then(() => {
             console.log("proslo")

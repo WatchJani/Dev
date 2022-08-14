@@ -13,7 +13,7 @@ export const SVG_Data = [
                 <path fill="#5C913B" d="M37.5 37.5A1.5 1.5 0 0136 39H8a1.5 1.5 0 010-3h28a1.5 1.5 0 011.5 1.5z"></path>
             </g>
         </svg>,
-        link: "/fja"
+        link: "/"
     },
     {
         name: "Reading List",

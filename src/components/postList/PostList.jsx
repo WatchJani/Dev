@@ -18,7 +18,6 @@ const PostList = () => {
 
     const { loading, error, value: posts } = useAsync(getPosts)
 
-
     if (loading) return <SkeletonLoading />
 
     if (error) return <p>{error}</p>
