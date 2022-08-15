@@ -37,7 +37,9 @@ const Header = () => {
                 </div>
                 <div className={Styled.Flex}>
                     <button className={Styled.Login}>Log in</button>
-                    <button className={Styled.CreatedAcc}>Create account</button>
+                    <Link to="register">
+                        <button className={Styled.CreatedAcc}>Create account</button>
+                    </Link>
                 </div>
             </div>
         </header>

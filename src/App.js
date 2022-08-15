@@ -6,7 +6,7 @@ import {
 
 import Layout from "./layout/Layout";
 
-import { News, Home, NewPost, Register } from "./pages/index"
+import { News, Home, NewPost, Register, Login } from "./pages/index"
 
 import ScrollToTop from "./helper/ScrollToTop";
 
@@ -22,6 +22,7 @@ function App() {
             <Route path="/:news" element={<PostProvider><News /></PostProvider>} />
             <Route path="/add" element={<NewPost />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
             {/*<Route path="teams" element={<Teams />}>
             <Route path=":teamId" element={<Team />} />
             <Route path="new" element={<NewTeamForm />} />
