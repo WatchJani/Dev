@@ -50,10 +50,9 @@ const Register = () => {
     else setData({ ...data, [e.target.name]: e.target.value });
   }
 
-  if (loading) return <Spinner />;
-
   return (
     <form onSubmit={Submit} className={Styled.Form}>
+      {loading && <Spinner />}
       <h1>Welcome to DEV Community</h1>
       <p className={Styled.SubTitle}>DEV Community is a community of 891,187 amazing developers</p>
       <input type="text" name='firstName' placeholder='First Name' onChange={onChange} />

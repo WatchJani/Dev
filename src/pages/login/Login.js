@@ -21,20 +21,15 @@ const Login = () => {
         setData({ ...data, [e.target.name]: e.target.value });
     }
 
-    if (loading) return <Spinner />;
 
 
     const Submit = (e) => {
         e.preventDefault();
         setLoading(true);
 
-        const formData = new FormData();
+      
 
-        formData.append("email", data.email)
-        formData.append("password", data.password)
-
-
-        axios.post("user/register", formData)
+        axios.post("user/login", data)
             .then((data) => {
                 navigate("/", { replace: true })
                 console.log(data)
@@ -46,10 +41,11 @@ const Login = () => {
 
     return (
         <form onSubmit={Submit} className={Styled.Form}>
+            {loading&&<Spinner />}
             <h1>Welcome to DEV Community</h1>
             <p className={Styled.SubTitle}>DEV Community is a community of 891,187 amazing developers</p>
-            <input type="text" name='email' placeholder='First Name' onChange={onChange} />
-            <input type="password" name='password' placeholder='Last Name' onChange={onChange} />
+            <input type="text" name='email' placeholder='E-mail' onChange={onChange} />
+            <input type="password" name='password' placeholder='Password' onChange={onChange} />
 
             {error && <p className={Styled.Error}>{error}</p>}
             <button className={Styled.Publish}>Continue</button>
