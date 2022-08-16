@@ -3,6 +3,7 @@ import axios from "../../utils/axiosBackend"
 import { useNavigate } from 'react-router-dom'
 import Spinner from '../../components/Spiner/Spiner'
 import Styled from "./Register.module.css"
+import { Link } from 'react-router-dom'
 
 const Register = () => {
   let navigate = useNavigate();
@@ -53,6 +54,8 @@ const Register = () => {
 
   return (
     <form onSubmit={Submit} className={Styled.Form}>
+      <h1>Welcome to DEV Community</h1>
+      <p className={Styled.SubTitle}>DEV Community is a community of 891,187 amazing developers</p>
       <input type="text" name='firstName' placeholder='First Name' onChange={onChange} />
       <input type="text" name='lastName' placeholder='Last Name' onChange={onChange} />
       <input type="text" name='userName' placeholder='User Name' onChange={onChange} />
@@ -60,8 +63,12 @@ const Register = () => {
       <input type="password" name='password' placeholder='Password' onChange={onChange} />
       <label className={Styled.UploadFile} htmlFor="banner">Add a profil image</label>
       <input style={{ display: "none" }} type="file" name="profil" id="banner" onChange={onChange} />
+
       {error && <p className={Styled.Error}>{error}</p>}
       <button className={Styled.Publish}>Register</button>
+      <div className={Styled.Login}>
+        <p className={Styled.Absolut}>Already have an account?</p><Link to="/login">Log in.</Link>
+      </div>
     </form>
   )
 }
