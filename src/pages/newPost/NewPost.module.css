@@ -119,6 +119,10 @@
     font-size: 18px;
     line-height: 27px;
   }
+
+  .Title{
+    font-size: 36px;
+  }
 }
 
 @media (max-width: 767px) {
