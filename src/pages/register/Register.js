@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import axios from "../../utils/axiosBackend"
 import { useNavigate } from 'react-router-dom'
 import Spinner from '../../components/Spiner/Spiner'
+import Styled from "./Register.module.css"
 
 const Register = () => {
   let navigate = useNavigate();
 
   const [loading, setLoading] = useState();
+  const [error, setError] = useState()
 
   const [data, setData] = useState({
     firstName: "",
@@ -36,7 +38,7 @@ const Register = () => {
         navigate("/login", { replace: true })
         console.log(data)
       }).catch((err) => {
-        console.log(err);
+        setError(err.response.data.message);
         setLoading(false);
       })
   }
@@ -50,14 +52,16 @@ const Register = () => {
   if (loading) return <Spinner />;
 
   return (
-    <form onSubmit={Submit}>
-      <input type="text" name='firstName' onChange={onChange} />
-      <input type="text" name='lastName' onChange={onChange} />
-      <input type="text" name='userName' onChange={onChange} />
-      <input type="text" name='email' onChange={onChange} />
-      <input type="text" name='password' onChange={onChange} />
-      <input type="file" name="profil" id="" onChange={onChange} />
-      <button>send</button>
+    <form onSubmit={Submit} className={Styled.Form}>
+      <input type="text" name='firstName' placeholder='First Name' onChange={onChange} />
+      <input type="text" name='lastName' placeholder='Last Name' onChange={onChange} />
+      <input type="text" name='userName' placeholder='User Name' onChange={onChange} />
+      <input type="text" name='email' placeholder='E-mail' onChange={onChange} />
+      <input type="password" name='password' placeholder='Password' onChange={onChange} />
+      <label className={Styled.UploadFile} htmlFor="banner">Add a profil image</label>
+      <input style={{ display: "none" }} type="file" name="profil" id="banner" onChange={onChange} />
+      {error && <p className={Styled.Error}>{error}</p>}
+      <button className={Styled.Publish}>Register</button>
     </form>
   )
 }
