@@ -51,15 +51,15 @@ const Info = () => {
                 <a href="https://dev.to/devteam/announcing-the-redis-hackathon-on-dev-3248">→ Discover new chances to win & participate</a>
             </div>
 
-            {data.map(({ title, card }) =>
-                <div className={Styled.MorePost}>
+            {data.map(({ title, card }, index) =>
+                <div className={Styled.MorePost} key={index}>
                     <div className={Styled.Title}>
                         <h3>
                             {title}
                         </h3>
                     </div>
-                    {card.map(({ text, comments }) =>
-                        <div className={Styled.More}>
+                    {card.map(({ text, comments }, index) =>
+                        <div className={Styled.More} key={index}>
                             <p className={Styled.TitleTag}>{text}</p>
                             <div className={Styled.Tag}>
                                 <p>{comments}</p>

@@ -30,7 +30,7 @@ const PostList = () => {
                         <Link to={post._id} key={post._id}>
                             <div className={Styled.PostCard}>
                                 <div className={Styled.PostListProfilInfo}>
-                                    <img className={Styled.PostListImageProfil} src="./images/profil.webp" alt="" />
+                                    <img className={Styled.PostListImageProfil} src={post.userId.profilImage} alt={post.userId.profilImage} />
                                     <div className={Styled.FlexDirection}>
                                         <button>{post.userId.userName}</button>
                                         <time>{getMonth(post.createAt)} {(new Date(post.createAt)).getDate()} ({formatDistanceToNow(new Date(post.createAt), { addSuffix: true })})</time>

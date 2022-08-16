@@ -6,6 +6,8 @@ import PhoneMenu from "./MobileMenu"
 
 const Header = () => {
 
+
+
     const [isOpen, setIsOpen] = useState(false)
 
 
@@ -35,6 +37,8 @@ const Header = () => {
                         <button className={Styled.SearchButton}><FiSearch /></button>
                     </div>
                 </div>
+
+
                 <div className={Styled.Flex}>
                     <Link to="login">
                         <button className={Styled.Login}>Log in</button>
@@ -43,6 +47,8 @@ const Header = () => {
                         <button className={Styled.CreatedAcc}>Create account</button>
                     </Link>
                 </div>
+
+
             </div>
         </header>
     )

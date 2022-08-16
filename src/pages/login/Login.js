@@ -27,12 +27,11 @@ const Login = () => {
         e.preventDefault();
         setLoading(true);
 
-      
+
 
         axios.post("user/login", data)
             .then((data) => {
                 navigate("/", { replace: true })
-                console.log(data)
             }).catch((err) => {
                 setError(err.response.data.message);
                 setLoading(false);
@@ -41,7 +40,7 @@ const Login = () => {
 
     return (
         <form onSubmit={Submit} className={Styled.Form}>
-            {loading&&<Spinner />}
+            {loading && <Spinner />}
             <h1>Welcome to DEV Community</h1>
             <p className={Styled.SubTitle}>DEV Community is a community of 891,187 amazing developers</p>
             <input type="text" name='email' placeholder='E-mail' onChange={onChange} />

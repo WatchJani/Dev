@@ -29,7 +29,7 @@ const NewsContent = () => {
                     <div className={Styled.Posted}>
                         <div className={Styled.Position}>
                             <img className={Styled.LogoBackGround} src="./images/logo.webp" alt="" />
-                            <img className={Styled.Logo} src="./images/logoIspod.webp" alt="" />
+                            <img className={Styled.Logo} src={post.userId.profilImage} alt="" />
                         </div>
                     </div>
                     <div className={Styled.PostedText}>
