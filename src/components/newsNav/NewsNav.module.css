@@ -15,6 +15,11 @@
   transition: 200ms;
 }
 
+.HartActive {
+  color: red;
+  transition: 200ms;
+}
+
 .UnicornButton:hover {
   background-color: rgba(50, 173, 76, 0.2);
   color: rgb(10, 119, 0);

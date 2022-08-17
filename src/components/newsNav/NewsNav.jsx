@@ -1,18 +1,35 @@
 import Styled from "./NewsNav.module.css"
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import { useState } from "react";
+import { usePost } from "../../contexts/PostContext";
 
 
 
-const NewsNav = ({ data: { HartButton, UnicornButton, SaveButton } }) => {
+const NewsNav = ({ data: { UnicornButton, SaveButton } }) => {
+
+    const { post } = usePost()
+
+    const [like, setLike] = useState(post.like.length)
+    const [isLiked, setIsLiked] = useState(false)
+
+
+    const likeHandle = () => {
+        setLike(isLiked ? like - 1 : like + 1)
+        setIsLiked(!isLiked)
+    }
+
     return (
         <nav className={Styled.Nav}>
             <label htmlFor="HartButton" className={Styled.IconContainer}>
-                <button id="HartButton" className={Styled.HartButton}>
-                    <svg fill="currentColor" className={Styled.Hart} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-hidden="true" >
+                <button id="HartButton" className={Styled.HartButton} onClick={likeHandle}>
+                    {isLiked ? <svg fill="currentColor" className={Styled.HartActive} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-hidden="true" >
                         <path d="M21.179 12.794l.013.014L12 22l-9.192-9.192.013-.014A6.5 6.5 0 0112 3.64a6.5 6.5 0 019.179 9.154zM4.575 5.383a4.5 4.5 0 000 6.364L12 19.172l7.425-7.425a4.5 4.5 0 10-6.364-6.364L8.818 9.626 7.404 8.21l3.162-3.162a4.5 4.5 0 00-5.99.334l-.001.001z"></path>
-                    </svg>
+                    </svg> : <svg fill="currentColor" className={Styled.Hart} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-hidden="true" >
+                        <path d="M21.179 12.794l.013.014L12 22l-9.192-9.192.013-.014A6.5 6.5 0 0112 3.64a6.5 6.5 0 019.179 9.154zM4.575 5.383a4.5 4.5 0 000 6.364L12 19.172l7.425-7.425a4.5 4.5 0 10-6.364-6.364L8.818 9.626 7.404 8.21l3.162-3.162a4.5 4.5 0 00-5.99.334l-.001.001z"></path>
+                    </svg>}
+
                 </button>
-                <p>{HartButton}</p>
+                <p>{like}</p>
             </label>
 
             <label htmlFor="UnicornButton" className={Styled.IconContainer}>

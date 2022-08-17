@@ -13,9 +13,6 @@ const NewsContent = () => {
     }
 
 
-
-    console.log(post)
-
     return (
         <div className={Styled.Content}>
 
@@ -28,7 +25,7 @@ const NewsContent = () => {
                 <div className={Styled.PostBy}>
                     <div className={Styled.Posted}>
                         <div className={Styled.Position}>
-                            <img className={Styled.LogoBackGround} src="./images/logo.webp" alt="" />
+                            <img className={Styled.LogoBackGround} src={post.userId.teamId.profilImage} alt="" />
                             <img className={Styled.Logo} src={post.userId.profilImage} alt="" />
                         </div>
                     </div>

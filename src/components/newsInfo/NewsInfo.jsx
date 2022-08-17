@@ -1,13 +1,19 @@
 import Styled from "./NewsInfo.module.css"
+import { usePost } from "../../contexts/PostContext"
 
 const NewsInfo = () => {
+
+    const { post } = usePost()
+
+    console.log(post)
+
     return (
         <div className={Styled.Info}>
             <div className={Styled.Sticky}>
                 <div className={Styled.PostByInfo}>
                     <div className={Styled.Image}>
-                        <img className={Styled.LogoBackGround} src="./images/logo2.webp" alt="" />
-                        <span>The DEV Team</span>
+                        <img className={Styled.LogoBackGround} src={post.userId.teamId.profilImage} alt="" />
+                        <span>{post.userId.teamId.name}</span>
                     </div>
                     <button className={Styled.Follow}>Follow</button>
                     <p>The hardworking team behind dev.to ❤️</p>

@@ -2,7 +2,7 @@ import { NewsContainer } from '../../components/container/news/newsContainer'
 import { NewsNav, NewsContent, NewsInfo } from "../../components"
 import Styled from "./News.module.css"
 
-const data = { HartButton: 96, UnicornButton: 18, SaveButton: 106 }
+const data = { UnicornButton: 18, SaveButton: 106 }
 
 const News = () => {
     return (
