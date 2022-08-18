@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 import { useAsync } from "../hooks/useAsync"
 import { getPost } from "../services/posts"
 import { useParams } from "react-router-dom"
+import SkeletonLoadingNews from "../components/SkeletonLoading/SkeletonLoadingNews"
 
 const Context = React.createContext()
 
@@ -15,7 +16,7 @@ const PostProvider = ({ children }) => {
 
     const { loading, error, value: post } = useAsync(() => getPost(news), [news])
 
-    if (loading) return <h1>loading</h1>
+    if (loading) return <SkeletonLoadingNews />
 
     if (error) return <p>{error}</p>
 

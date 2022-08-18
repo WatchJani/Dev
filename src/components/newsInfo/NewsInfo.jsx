@@ -5,7 +5,6 @@ const NewsInfo = () => {
 
     const { post } = usePost()
 
-    console.log(post)
 
     return (
         <div className={Styled.Info}>

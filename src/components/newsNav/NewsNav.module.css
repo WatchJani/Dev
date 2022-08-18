@@ -15,9 +15,22 @@
   transition: 200ms;
 }
 
-.HartActive {
+.ActiveHartButton,
+.ActiveUnicornButton,
+.ActiveSaveButton {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+.ActiveHartButton {
+  background-color: rgba(241, 178, 178, 0.2);
   color: red;
-  transition: 200ms;
 }
 
 .UnicornButton:hover {
@@ -26,10 +39,20 @@
   transition: 200ms;
 }
 
+.ActiveUnicornButton {
+  background-color: rgba(50, 173, 76, 0.2);
+  color: rgb(10, 119, 0);
+}
+
 .SaveButton:hover {
   background-color: rgba(73, 50, 173, 0.2);
   color: rgb(72, 70, 197);
   transition: 200ms;
+}
+
+.ActiveSaveButton {
+  background-color: rgba(73, 50, 173, 0.2);
+  color: rgb(72, 70, 197);
 }
 
 .MoreButton:hover {
