@@ -3,12 +3,14 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { useState, useEffect } from "react";
 import { usePost } from "../../contexts/PostContext";
 import axios from "../../utils/axiosBackend";
-import Cookies from 'js-cookie'
+import { useUser } from "../../contexts/UserContext";
 
 
 const NewsNav = () => {
 
     const { post } = usePost()
+    const user = useUser()
+
 
     const [like, setLike] = useState(post.like.length)
     const [save, setSave] = useState(post.save.length)
@@ -19,29 +21,26 @@ const NewsNav = () => {
 
     const likeHandle = () => {
         setLike(isLiked ? like - 1 : like + 1)
-        axios.put(`/post/like/${post._id}`).then(() => {
-        })
+        axios.put(`/post/like/${post._id}`)
         setIsLiked(!isLiked)
     }
 
     const saveHandle = () => {
         setSave(isSaved ? save - 1 : save + 1)
-        axios.put(`/post/save/${post._id}`).then(() => {
-        })
+        axios.put(`/post/save/${post._id}`)
         setIsSaved(!isSaved)
     }
 
     const supportHandle = () => {
         setSupport(isSupported ? support - 1 : support + 1)
-        axios.put(`/post/support/${post._id}`).then(() => {
-        })
+        axios.put(`/post/support/${post._id}`)
         setIsSupported(!isSupported)
     }
 
     useEffect(() => {
-        setIsLiked(post.like.includes(Cookies.get('jwt')))
-        setIsSupported(post.support.includes(Cookies.get('jwt')))
-        setIsSaved(post.save.includes(Cookies.get('jwt')))
+        setIsLiked(post.like.includes(user.data ? user.data.user._id : null))
+        setIsSupported(post.support.includes(user.data ? user.data.user._id : null))
+        setIsSaved(post.save.includes(user.data ? user.data.user._id : null))
     }, [])
 
     return (

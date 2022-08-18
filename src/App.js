@@ -12,10 +12,12 @@ import ScrollToTop from "./helper/ScrollToTop";
 
 import PostProvider from "./contexts/PostContext";
 
+import UserProvider from "./contexts/UserContext";
+
 
 function App() {
   return (
-
+    <UserProvider>
       <BrowserRouter>
         <ScrollToTop>
           <Routes>
@@ -25,17 +27,11 @@ function App() {
               <Route path="/add" element={<NewPost />} />
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
-              {/*<Route path="teams" element={<Teams />}>
-              <Route path=":teamId" element={<Team />} />
-              <Route path="new" element={<NewTeamForm />} />
-              <Route index element={<LeagueStandings />} />
-              </Route> */}
             </Route>
           </Routes >
         </ScrollToTop>
       </BrowserRouter>
-
-
+    </UserProvider>
   );
 }
 

@@ -3,10 +3,13 @@ import { useState } from "react";
 import axios from "../../utils/axiosBackend"
 import { useNavigate } from 'react-router-dom'
 import Spinner from '../../components/Spiner/Spiner'
+import { useUser } from "../../contexts/UserContext";
 
 const Login = () => {
 
     let navigate = useNavigate();
+
+    const user = useUser()
 
     const [loading, setLoading] = useState();
     const [error, setError] = useState()
@@ -32,6 +35,7 @@ const Login = () => {
         axios.post("user/login", data)
             .then((data) => {
                 navigate("/", { replace: true })
+                user.setNav(data)
             }).catch((err) => {
                 setError(err.response.data.message);
                 setLoading(false);

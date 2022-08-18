@@ -105,6 +105,7 @@ a:hover .CardInfoContainer span {
   display: flex;
   padding-left: 34px;
   margin-top: 2px;
+  flex-wrap: wrap;
 }
 
 .TagFlex p {

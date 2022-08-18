@@ -3,16 +3,27 @@ import { FiSearch } from "react-icons/fi";
 import { Link } from 'react-router-dom'
 import { useState } from "react";
 import PhoneMenu from "./MobileMenu"
+import { useUser } from "../../contexts/UserContext";
+import axios from "../../utils/axiosBackend";
 
 const Header = () => {
 
 
+    const status = useUser()
+
+    console.log(status)
 
     const [isOpen, setIsOpen] = useState(false)
 
-
     const menuOpen = () => {
         setIsOpen(value => !value)
+    }
+
+    const logOut = () => {
+        axios.get("/user/logout").then(() => {
+            status.setNav()
+            status.setData()
+        })
     }
 
     return (
@@ -39,18 +50,24 @@ const Header = () => {
                 </div>
 
 
-                <div className={Styled.Flex}>
-                    <Link to="login">
-                        <button className={Styled.Login}>Log in</button>
-                    </Link>
-                    <Link to="register">
-                        <button className={Styled.CreatedAcc}>Create account</button>
-                    </Link>
-                </div>
-
-
+                {status.data ?
+                    <div className={Styled.FlexButton}>
+                        <Link to="/add">
+                            <button className={Styled.Login}>Create Post</button>
+                        </Link>
+                        <button className={Styled.CreatedAcc} onClick={logOut}>Log out</button>
+                    </div>
+                    :
+                    <div className={Styled.FlexButton}>
+                        <Link to="login">
+                            <button className={Styled.Login}>Log in</button>
+                        </Link>
+                        <Link to="register">
+                            <button className={Styled.CreatedAcc}>Create account</button>
+                        </Link>
+                    </div>}
             </div>
-        </header>
+        </header >
     )
 }
 

@@ -23,7 +23,7 @@
 .PostInfo h1 {
   margin-bottom: 8px;
   font-size: 48px;
-
+  word-wrap: break-word;
   font-weight: 800;
   line-height: 60px;
 }
