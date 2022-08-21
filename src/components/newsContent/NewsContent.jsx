@@ -49,7 +49,7 @@ const NewsContent = () => {
 
 
             {/* content */}
-            <div className={Styled.Post} dangerouslySetInnerHTML={{ __html: post.post }} />
+            <div className={Styled.Post} dangerouslySetInnerHTML={{ __html: post.post.replaceAll("&lt;", "<").replaceAll("&gt;", ">") }} />
         </div>
     )
 }

@@ -3,7 +3,7 @@ import React from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import axios from "../../utils/axiosBackend"
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 import Spinner from "../../components/Spiner/Spiner";
 
@@ -53,7 +53,9 @@ const NewPost = () => {
 
     const Submit = (e) => {
         e.preventDefault();
-        // if (!data) return setError('Please enter data!');
+
+        // setData({ ...data, post: data.postreplaceAll("&lt;", "<").replaceAll("&gt;", ">") })
+
         setLoading(true);
         const formData = new FormData();
 

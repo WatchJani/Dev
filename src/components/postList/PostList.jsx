@@ -1,32 +1,71 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { getPosts } from '../../services/posts'
-import { useAsync } from '../../hooks/useAsync'
 import Styled from "./PostList.module.css"
 import SkeletonLoading from '../SkeletonLoading/SkeletonLoading'
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
-
+import { useInfiniteQuery } from 'react-query'
+import axios from '../../utils/axiosBackend'
 
 const PostList = () => {
+
+    const fetchRepositories = async (page = 0) => {
+        console.log(page)
+        return axios.get(`/post?skip=${page * 5}`)
+    }
+
+    const { data, isLoading, isError, error, hasNextPage, fetchNextPage } = useInfiniteQuery(
+        "repositories",
+        ({ pageParam }) => fetchRepositories(pageParam),
+        {
+            getNextPageParam: (lastPage, allPages) => {
+                const maxPages = lastPage.data.total_count / 5
+                const nextPage = allPages.length
+                console.log("maxPages: ", maxPages, " nextPage :", nextPage)
+                return nextPage <= maxPages ? nextPage : undefined
+            }
+        }
+    )
 
     function getMonth(Month) {
         const month = (new Date(Month)).getMonth()
         const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Avg", "Sep", "Oct", "Nov", "Dec"]
-
         return months[month]
     }
 
-    const { loading, error, value: posts } = useAsync(getPosts)
 
-    if (loading) return <SkeletonLoading />
 
-    if (error) return <p>{error}</p>
+    useEffect(() => {
+        let fetching = false
+        const onScroll = async (event) => {
+            const { scrollHeight, scrollTop, clientHeight } = event.target.scrollingElement
+
+            if (!fetching && scrollHeight - scrollTop <= clientHeight * 1.5) {
+                fetching = true
+                if (hasNextPage) await fetchNextPage()
+                fetching = false
+            }
+        }
+
+        document.addEventListener("scroll", onScroll)
+        return () => {
+            document.removeEventListener("scroll", onScroll)
+        }
+    }, [data])
+
+
+    console.log(hasNextPage)
+
+
+    if (isLoading) return <SkeletonLoading />
+
+    if (isError) return <p>{error}</p>
+
 
     return (
         <>
             {
-                posts.map((post) => {
-                    return (
+                data.pages.map((page) =>
+                    page.data.items.map((post) => (
                         <Link to={post._id} key={post._id}>
                             <div className={Styled.PostCard}>
                                 <div className={Styled.PostListProfilInfo}>
@@ -40,10 +79,13 @@ const PostList = () => {
                                     <span>{post.title}</span>
                                 </div>
                                 <div className={Styled.TagFlex}>
-                                    <p>#programming</p>
-                                    <p>#tutorial</p>
-                                    <p>#performance</p>
+                                    <p># programming</p>
+                                    <p># tutorial</p>
+                                    <p># performance</p>
                                 </div>
+
+                                {/* <p>#performance</p> */}
+
                                 <div className={Styled.Bottom}>
                                     <div className={Styled.ButtonFlex}>
                                         <button className={Styled.ButtonComand}>
@@ -69,8 +111,8 @@ const PostList = () => {
 
                             </div>
                         </Link>
-                    )
-                })
+                    ))
+                )
             }
         </>
     )
