@@ -11,7 +11,6 @@ const Header = () => {
 
     const status = useUser()
 
-    console.log(status)
 
     const [isOpen, setIsOpen] = useState(false)
 

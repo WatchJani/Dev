@@ -9,7 +9,6 @@ import axios from '../../utils/axiosBackend'
 const PostList = () => {
 
     const fetchRepositories = async (page = 0) => {
-        console.log(page)
         return axios.get(`/post?skip=${page * 5}`)
     }
 
@@ -20,7 +19,6 @@ const PostList = () => {
             getNextPageParam: (lastPage, allPages) => {
                 const maxPages = lastPage.data.total_count / 5
                 const nextPage = allPages.length
-                console.log("maxPages: ", maxPages, " nextPage :", nextPage)
                 return nextPage <= maxPages ? nextPage : undefined
             }
         }
@@ -31,8 +29,6 @@ const PostList = () => {
         const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Avg", "Sep", "Oct", "Nov", "Dec"]
         return months[month]
     }
-
-
 
     useEffect(() => {
         let fetching = false
@@ -53,7 +49,6 @@ const PostList = () => {
     }, [data])
 
 
-    console.log(hasNextPage)
 
 
     if (isLoading) return <SkeletonLoading />
