@@ -10,8 +10,10 @@ const NewsContent = () => {
         const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Avg", "Sep", "Oct", "Nov", "Dec"]
 
         return months[month]
-    }
 
+
+
+    }
 
     return (
         <div className={Styled.Content}>
@@ -40,10 +42,11 @@ const NewsContent = () => {
                 {/* tags */}
 
                 <div className={Styled.Tags}>
-                    <div>#redishackathon</div>
-                    <div>#redis</div>
-                    <div>#meta</div>
-                    <div>#database</div>
+                    {post.tag.map(({ _id, tag, hue, saturation }) => {
+                        return (
+                            <div key={_id}><span style={{ color: `hsl(${hue},${saturation}%,75%)` }}>#</span> {tag}</div>
+                        )
+                    })}
                 </div>
             </div>
 

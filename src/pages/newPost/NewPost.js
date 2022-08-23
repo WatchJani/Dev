@@ -18,7 +18,6 @@ const NewPost = () => {
         post: null
     })
 
-    console.log(data)
 
     function uploadAdapter(loader) {
         return {
@@ -29,7 +28,6 @@ const NewPost = () => {
                         body.append("upload", file)
                         axios.post("/team/upload", body)
                             .then((data) => {
-                                console.log(data.data.data)
                                 resolve({ default: data.data.data })
                             })
                     })
