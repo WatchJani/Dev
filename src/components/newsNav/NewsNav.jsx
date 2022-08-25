@@ -11,7 +11,6 @@ const NewsNav = () => {
     const { post } = usePost()
     const user = useUser()
 
-
     const [like, setLike] = useState(post.like.length)
     const [save, setSave] = useState(post.save.length)
     const [support, setSupport] = useState(post.support.length)
@@ -20,21 +19,27 @@ const NewsNav = () => {
     const [isSupported, setIsSupported] = useState(false)
 
     const likeHandle = () => {
-        setLike(isLiked ? like - 1 : like + 1)
-        axios.put(`/post/like/${post._id}`)
-        setIsLiked(!isLiked)
+        if (user.data) {
+            setLike(isLiked ? like - 1 : like + 1)
+            axios.put(`/post/like/${post._id}`)
+            setIsLiked(!isLiked)
+        }
     }
 
     const saveHandle = () => {
-        setSave(isSaved ? save - 1 : save + 1)
-        axios.put(`/post/save/${post._id}`)
-        setIsSaved(!isSaved)
+        if (user.data) {
+            setSave(isSaved ? save - 1 : save + 1)
+            axios.put(`/post/save/${post._id}`)
+            setIsSaved(!isSaved)
+        }
     }
 
     const supportHandle = () => {
-        setSupport(isSupported ? support - 1 : support + 1)
-        axios.put(`/post/support/${post._id}`)
-        setIsSupported(!isSupported)
+        if (user.data) {
+            setSupport(isSupported ? support - 1 : support + 1)
+            axios.put(`/post/support/${post._id}`)
+            setIsSupported(!isSupported)
+        }
     }
 
     useEffect(() => {
@@ -61,7 +66,6 @@ const NewsNav = () => {
             </label>
 
             <label htmlFor="UnicornButton" className={Styled.IconContainer}>
-
                 {isSupported ? <button id="UnicornButton" className={Styled.ActiveUnicornButton} onClick={supportHandle}>
                     <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" role="img" aria-hidden="true" >
                         <path d="M5.645 8.013c.013-.265-.261-.323-.4-.183-1.16 1.17-1.822 3.865-.344 7.32.294.961 1.938 3.19.84 6.131l-.003.006c-.094.255.206.404.366.263 1.395-1.226 1.933-3.593 1.1-6.375-.488-1.657-1.955-4.226-1.559-7.162zm-3.22 2.738c.05-.137-.124-.417-.326-.225-.939.893-1.316 2.863-.976 4.605.547 2.878 2.374 3.526 2.066 6.629-.028.102.176.38.348.154 1.546-2.033.409-4.453-.241-6.006-1.005-2.386-1.087-4.118-.871-5.157z"></path>
@@ -78,7 +82,6 @@ const NewsNav = () => {
             </label>
 
             <label htmlFor="SaveButton" className={Styled.IconContainer}>
-
                 {isSaved ? <button id="SaveButton" className={Styled.ActiveSaveButton} onClick={saveHandle}>
                     <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-hidden="true">
                         <path d="M5 2h14a1 1 0 011 1v19.143a.5.5 0 01-.766.424L12 18.03l-7.234 4.536A.5.5 0 014 22.143V3a1 1 0 011-1zm13 2H6v15.432l6-3.761 6 3.761V4z"></path>
@@ -88,7 +91,6 @@ const NewsNav = () => {
                         <path d="M5 2h14a1 1 0 011 1v19.143a.5.5 0 01-.766.424L12 18.03l-7.234 4.536A.5.5 0 014 22.143V3a1 1 0 011-1zm13 2H6v15.432l6-3.761 6 3.761V4z"></path>
                     </svg>
                 </button>}
-
                 <p>{save}</p>
             </label>
 

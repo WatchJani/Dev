@@ -1,10 +1,10 @@
 import Styled from "./NewsInfo.module.css"
 import { usePost } from "../../contexts/PostContext"
+import { Link } from "react-router-dom"
 
 const NewsInfo = () => {
 
-    const { post } = usePost()
-
+    const { post, samePost } = usePost()
 
     return (
         <div className={Styled.Info}>
@@ -15,12 +15,8 @@ const NewsInfo = () => {
                         <span>{post.userId.teamId.name}</span>
                     </div>
                     <button className={Styled.Follow}>Follow</button>
-                    <p>The hardworking team behind dev.to ❤️</p>
-                    <div>
-                        <p>Want to contribute to open source and help make the DEV community stronger?</p>
-                        <p>The code that powers DEV is called <b>Forem</b> and is freely available on GitHub.</p>
-                        <p>You're welcome to jump in!</p>
-                    </div>
+                    <div dangerouslySetInnerHTML={{ __html: post.userId.teamId.info }} />
+
                     <button className={Styled.Contribute}>Contribute to Forem</button>
                 </div>
                 <div className={Styled.MorePost}>
@@ -30,29 +26,20 @@ const NewsInfo = () => {
                         </h3>
                     </div>
                     <div className={Styled.More}>
-                        <p className={Styled.TitleTag}>Redis x DEV Hackathon Help Thread</p>
-                        <div className={Styled.Tag}>
-                            <p>#redishackathon</p>
-                            <p>#redis</p>
-                            <p>#help</p>
-                        </div>
-                    </div>
-                    <div className={Styled.More}>
-                        <p className={Styled.TitleTag}>Community Discussion Thread — Redis x DEV Hackathon</p>
-                        <div className={Styled.Tag}>
-                            <p>#discuss</p>
-                            <p>#redishackathon</p>
-                            <p>#redis</p>
-                        </div>
-                    </div>
-                    <div className={Styled.More}>
-                        <p className={Styled.TitleTag}>Follow Friday: UX/UI Edition (29 July 2022)</p>
-                        <div className={Styled.Tag}>
-                            <p>#meta</p>
-                            <p>#ux</p>
-                            <p>#ui</p>
-                            <p>#design</p>
-                        </div>
+                        {samePost.samePost.map(({ title, tag, _id }) => {
+                            return (
+                                <Link to={`/${_id}`}>
+                                    <p className={Styled.TitleTag}>{title}</p>
+                                    <div className={Styled.Tag}>
+                                        {tag.map(({ tag }) => {
+                                            return (
+                                                <p># {tag}</p>
+                                            )
+                                        })}
+                                    </div>
+                                </Link>
+                            )
+                        })}
                     </div>
                 </div>
             </div>
