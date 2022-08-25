@@ -24,8 +24,6 @@ const PostList = () => {
         }
     )
 
-    console.log(data)
-
     function getMonth(Month) {
         const month = (new Date(Month)).getMonth()
         const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Avg", "Sep", "Oct", "Nov", "Dec"]

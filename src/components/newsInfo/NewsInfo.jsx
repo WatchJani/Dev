@@ -28,14 +28,16 @@ const NewsInfo = () => {
                     <div className={Styled.More}>
                         {samePost.samePost.map(({ title, tag, _id }) => {
                             return (
-                                <Link to={`/${_id}`}>
-                                    <p className={Styled.TitleTag}>{title}</p>
-                                    <div className={Styled.Tag}>
-                                        {tag.map(({ tag }) => {
-                                            return (
-                                                <p># {tag}</p>
-                                            )
-                                        })}
+                                <Link key={_id} to={`/${_id}`}>
+                                    <div className={Styled.Post_Opis}>
+                                        <p className={Styled.TitleTag}>{title}</p>
+                                        <div className={Styled.Tag}>
+                                            {tag.map(({ tag }, index) => {
+                                                return (
+                                                    <p key={index}># {tag}</p>
+                                                )
+                                            })}
+                                        </div>
                                     </div>
                                 </Link>
                             )

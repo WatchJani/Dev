@@ -5,6 +5,7 @@ import { useState } from "react";
 import PhoneMenu from "./MobileMenu"
 import { useUser } from "../../contexts/UserContext";
 import axios from "../../utils/axiosBackend";
+import ProfilImage from "../profilImage/ProfilImage";
 
 const Header = () => {
 
@@ -55,6 +56,7 @@ const Header = () => {
                             <button className={Styled.Login}>Create Post</button>
                         </Link>
                         <button className={Styled.CreatedAcc} onClick={logOut}>Log out</button>
+                        <ProfilImage />
                     </div>
                     :
                     <div className={Styled.FlexButton}>

@@ -1,0 +1,12 @@
+.Profile {
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.Profile:hover {
+  background-color: #ebecfc;
+}

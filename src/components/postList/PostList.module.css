@@ -180,8 +180,10 @@ a:hover .CardInfoContainer span {
 }
 
 @media (max-width: 767px) {
-  .PostCard {
-    padding: 18px 18px 18px 0;
+
+
+  .PaddingPost{
+    padding-left: 0;
   }
 
   .CardInfoContainer,
