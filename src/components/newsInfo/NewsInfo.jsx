@@ -6,18 +6,20 @@ const NewsInfo = () => {
 
     const { post, samePost } = usePost()
 
+    console.log(post)
+
     return (
         <div className={Styled.Info}>
             <div className={Styled.Sticky}>
                 <div className={Styled.PostByInfo}>
                     <div className={Styled.Image}>
-                        <img className={Styled.LogoBackGround} src={post.userId.teamId.profilImage} alt="" />
-                        <span>{post.userId.teamId.name}</span>
+                        {post.userId.teamId ? <img className={Styled.LogoBackGround} src={post.userId.teamId.profilImage} alt="" /> : <img className={Styled.UserLogoBackGround} src={post.userId.profilImage} alt="" />}
+                        <span>{post.userId.teamId ? post.userId.teamId.name : post.userId.userName}</span>
                     </div>
                     <button className={Styled.Follow}>Follow</button>
-                    <div dangerouslySetInnerHTML={{ __html: post.userId.teamId.info }} />
+                    {post.userId.teamId ? <div dangerouslySetInnerHTML={{ __html: post.userId.teamId.info }} /> : <div><p>{post.userId.info}</p></div>}
 
-                    <button className={Styled.Contribute}>Contribute to Forem</button>
+                    {post.userId.teamId ? <button className={Styled.Contribute}>Contribute to Forem</button> : undefined}
                 </div>
                 <div className={Styled.MorePost}>
                     <div className={Styled.Title}>
@@ -26,7 +28,7 @@ const NewsInfo = () => {
                         </h3>
                     </div>
                     <div className={Styled.More}>
-                        {samePost.samePost.map(({ title, tag, _id }) => {
+                        {samePost?.samePost?.map(({ title, tag, _id }) => {
                             return (
                                 <Link key={_id} to={`/${_id}`}>
                                     <div className={Styled.Post_Opis}>

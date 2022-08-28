@@ -3,8 +3,6 @@
   flex: 7;
   border-radius: 7px;
   box-shadow: 0 0 0 1px var(--card-border);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   border-radius: 5px;
 }
 
@@ -128,6 +126,13 @@ b {
   border-radius: var(--radius);
   border: 1px solid var(--body-color);
   margin: 36px auto;
+}
+
+.JustUserImage {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 @media (max-width: 1023px) {

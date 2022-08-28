@@ -27,12 +27,12 @@ const NewsContent = () => {
                 <div className={Styled.PostBy}>
                     <div className={Styled.Posted}>
                         <div className={Styled.Position}>
-                            <img className={Styled.LogoBackGround} src={post.userId.teamId.profilImage} alt="" />
-                            <img className={Styled.Logo} src={post.userId.profilImage} alt="" />
+                            {post.userId.teamId ? <img className={Styled.LogoBackGround} src={post.userId.teamId.profilImage} alt="" /> : undefined}
+                            {post.userId.teamId ? <img className={Styled.Logo} src={post.userId.profilImage} alt="" /> : <img className={Styled.JustUserImage} src={post.userId.profilImage} alt="" />}
                         </div>
                     </div>
                     <div className={Styled.PostedText}>
-                        <p><b>{post.userId.userName}</b> for <span>{post.userId.teamId.name}</span></p>
+                        {post.userId.teamId ? <p><b>{post.userId.userName}</b> for <span>{post.userId.teamId.name}</span></p> : <p><b>{post.userId.userName}</b></p>}
                         <p className={Styled.PostDate}>Posted on {getMonth(post.createAt)} {(new Date(post.createAt)).getDate()}</p>
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Styled from "./PostList.module.css"
 import SkeletonLoading from '../SkeletonLoading/SkeletonLoading'
@@ -52,6 +52,7 @@ const PostList = () => {
 
     if (isError) return <p>{error}</p>
 
+
     return (
         <div className={Styled.Sve}>
             {
@@ -62,7 +63,11 @@ const PostList = () => {
                                 <img src={post.banner} alt={post.banner} className={index == 0 ? "Img" : "NoImg"} />
                                 <div className={Styled.PaddingPost}>
                                     <div className={Styled.PostListProfilInfo}>
-                                        <img className={Styled.PostListImageProfil} src={post.userId.profilImage} alt={post.userId.profilImage} />
+                                        {post.userId.teamId ?
+                                            <div className={Styled.RelativeImage}>
+                                                <img className={Styled.PostListImageTeam} src={post.userId.teamId.profilImage} alt={post.userId.teamId.profilImage} />
+                                                <img className={Styled.PostListImageProfilTeam} src={post.userId.profilImage} alt={post.userId.profilImage} />
+                                            </div> : <img className={Styled.PostListImageProfil} src={post.userId.profilImage} alt={post.userId.profilImage} />}
                                         <div className={Styled.FlexDirection}>
                                             <button>{post.userId.userName}</button>
                                             <time>{getMonth(post.createAt)} {(new Date(post.createAt)).getDate()} ({formatDistanceToNow(new Date(post.createAt), { addSuffix: true })})</time>
@@ -99,7 +104,7 @@ const PostList = () => {
                                         </div>
                                         <div className={Styled.BoxTimeReading}>
                                             <p className={Styled.TimeForReading}>{post.timeToRead} min read</p>
-                                            <button className={Styled.RealButton}>Save</button>
+                                            <button onClick={() => { console.log("save") }} className={Styled.RealButton}>Save</button>
                                         </div>
                                     </div>
                                 </div>
