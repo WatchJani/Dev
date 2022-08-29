@@ -8,3 +8,6 @@ export const getPost = (id) => {
     return makeRequest(`/post/${id}`)
 }
 
+// export const addCommentar = (post) => {
+//     return makeRequest(`/post/commentar/${post}`, {method: "post", message: "asd"})
+// }

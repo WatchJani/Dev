@@ -21,10 +21,43 @@
 }
 
 .Text a {
-    display: block;
-    width: max-content;
+  display: block;
+  width: max-content;
   margin: 25px 10px 10px 0;
   padding: 12px 25px;
   color: white;
   background-color: black;
+}
+
+@media (max-width: 767px) {
+  .Text h1 {
+    line-height: 56px;
+    font-size: 40px;
+    font-weight: 800;
+  }
+
+  .Text h2{
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .Text h4{
+    font-weight: 500;
+  }
+}
+
+
+@media (max-width: 639px) {
+  .MyContainer{
+    padding: 30px ;
+  }
+
+  .Text h1 {
+    line-height: 45px;
+    font-size: 35px;
+  }
+
+  .Text h2{
+    font-size: 18px;
+  }
 }

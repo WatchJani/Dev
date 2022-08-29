@@ -1,0 +1,133 @@
+.CardMessage {
+  padding: 4px;
+  margin-left: 8px;
+  box-shadow: 0 0 0 1px var(--card-border);
+  border-radius: var(--radius-auto);
+  width: 100%;
+}
+
+.MessageContainer {
+  margin-bottom: 24px;
+  display: flex;
+}
+
+.MessageContainer img {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.Message {
+  margin: 8px 0 16px 0;
+  padding: 0 12px;
+  color: #171717;
+  line-height: 27px;
+}
+
+.Header {
+  padding: 8px 12px 0 12px;
+}
+
+.Header button {
+  background-color: transparent;
+  padding: 4px;
+  border: none;
+  color: #090909;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.Header button:hover {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.Header span {
+  color: #717171;
+}
+
+.Dot {
+  padding-right: 8px;
+}
+
+.MessageContainer textarea {
+  margin-left: 8px;
+  display: block;
+  width: 100%;
+  border-radius: 5px;
+  height: 120px;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 1px solid #dfdfdf;
+  resize: none;
+}
+
+.Left {
+  width: 100%;
+  padding-right: 8px;
+}
+
+.Left button {
+  padding: 8px 16px;
+  color: white;
+  font-weight: 700;
+  background-color: #2f3ab2;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 10px;
+  margin-left: 8px;
+}
+
+.MessageArea {
+  padding: 32px 64px;
+}
+
+.HederMess {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 24px;
+}
+
+.HederMess button {
+  padding: 6px 14px;
+  border: 2px solid #dfdfdf;
+  background-color: white;
+  border-radius: 5px;
+  color: #3d3d34;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  -webkit-box-shadow: 0px 0px 9px -6px #757575;
+  box-shadow: 0px 0px 9px -6px #757575;
+}
+
+.line {
+  border-color: rgba(252, 252, 252, 0.1);
+}
+
+.HederMess button:hover {
+  background-color: #f6f6f6;
+  transition: 200ms;
+  color: #090909;
+}
+
+@media (max-width: 767px) {
+  .MessageContainer img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .MessageArea {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 639px) {
+  .MessageArea {
+    padding: 12px;
+  }
+}

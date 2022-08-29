@@ -20,6 +20,8 @@
   --fs-l: 1.125rem;
   --base-20: #d6d6d7;
   --button-outlined-border: var(--base-20);
+  --radius-auto: Max(0px, Min(var(--radius), calc((100vw - 4px - 100%) * 9999))) / var(--radius);
+  --radius: 0.375rem;
 }
 
 /* loading sceleton */

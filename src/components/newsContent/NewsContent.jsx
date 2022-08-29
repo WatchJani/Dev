@@ -1,5 +1,6 @@
 import { usePost } from "../../contexts/PostContext"
 import Styled from "./NewsContent.module.css"
+import Coment from "../Coment/Coment"
 
 const NewsContent = () => {
 
@@ -10,9 +11,6 @@ const NewsContent = () => {
         const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Avg", "Sep", "Oct", "Nov", "Dec"]
 
         return months[month]
-
-
-
     }
 
     return (
@@ -53,6 +51,9 @@ const NewsContent = () => {
 
             {/* content */}
             <div className={Styled.Post} dangerouslySetInnerHTML={{ __html: post.post.replaceAll("&lt;", "<").replaceAll("&gt;", ">") }} />
+            
+                <Coment />
+           
         </div>
     )
 }
