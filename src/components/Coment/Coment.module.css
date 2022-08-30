@@ -82,6 +82,10 @@
   margin-left: 8px;
 }
 
+.Link {
+  height: 32px;
+}
+
 .MessageArea {
   padding: 32px 64px;
 }
@@ -123,6 +127,10 @@
 
   .MessageArea {
     padding: 20px;
+  }
+
+  .Link {
+    height: 24px;
   }
 }
 

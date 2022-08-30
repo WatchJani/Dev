@@ -6,7 +6,7 @@ import {
 
 import Layout from "./layout/Layout";
 
-import { News, Home, NewPost, Register, Login, Contact, About, Sponsors } from "./pages/index"
+import { News, Home, NewPost, Register, Login, Contact, About, Sponsors, Profil } from "./pages/index"
 
 import ScrollToTop from "./helper/ScrollToTop";
 
@@ -30,6 +30,7 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/about" element={<About />} />
               <Route path="/sponsors" element={<Sponsors />} />
+              <Route path="/profil/:profil" element={<Profil />} />
             </Route>
           </Routes >
         </ScrollToTop>

@@ -36,20 +36,19 @@
     font-weight: 800;
   }
 
-  .Text h2{
+  .Text h2 {
     font-size: 20px;
     font-weight: 500;
   }
 
-  .Text h4{
+  .Text h4 {
     font-weight: 500;
   }
 }
 
-
 @media (max-width: 639px) {
-  .MyContainer{
-    padding: 30px ;
+  .MyContainer {
+    padding: 30px;
   }
 
   .Text h1 {
@@ -57,7 +56,7 @@
     font-size: 35px;
   }
 
-  .Text h2{
+  .Text h2 {
     font-size: 18px;
   }
 }

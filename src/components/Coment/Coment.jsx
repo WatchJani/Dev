@@ -3,6 +3,7 @@ import { useState, useEffect, useReducer } from "react"
 import { usePost } from "../../contexts/PostContext"
 import axios from "../../utils/axiosBackend"
 import { useUser } from "../../contexts/UserContext"
+import { Link } from "react-router-dom"
 
 const Coment = () => {
 
@@ -10,7 +11,6 @@ const Coment = () => {
 
     const status = useUser()
 
-    console.log("user", status.data.user.profilImage)
     const [reduceValue, forceUpdate] = useReducer(x => x + 1, 0)
 
     function getMonth(Month) {
@@ -39,6 +39,7 @@ const Coment = () => {
     }, [reduceValue])
 
 
+
     return (
         <>
             <hr className={Styled.line} />
@@ -48,7 +49,7 @@ const Coment = () => {
                     <button>Subscribe</button>
                 </div>
                 <div className={Styled.MessageContainer}>
-                    <img src={status.data.user.profilImage} alt={status.data.user.profilImage} />
+                    {status?.data?.user ? <img src={status.data.user.profilImage} alt={status.data.user.profilImage} /> : <img src="./images/devlogo-pwa-512.webp" alt="" />}
                     <div className={Styled.Left}>
                         <textarea placeholder="Add to the Discussion " onChange={(e) => { setMessage(e.target.value) }} />
                         <button onClick={AddComment} >Submit</button>
@@ -57,10 +58,14 @@ const Coment = () => {
                 {data.map((message, index) => {
                     return (
                         <div key={index} className={Styled.MessageContainer}>
-                            <img src={message.userId.profilImage} alt="" />
+                            <Link to={`/profil/${message.userId._id}`} className={Styled.Link}>
+                                <img src={message.userId.profilImage} alt="" />
+                            </Link>
                             <div className={Styled.CardMessage}>
                                 <div className={Styled.Header}>
-                                    <button>{message.userId.firstName} {message.userId.lastName} (@{message.userId.userName})</button>
+                                    <Link to={`/profil/${message.userId._id}`}>
+                                        <button>{message.userId.firstName} {message.userId.lastName} (@{message.userId.userName})</button>
+                                    </Link>
                                     <span className={Styled.Dot}>•</span>
                                     <span>{(new Date(message.createAt)).getDate()} {getMonth(post.createAt)}</span>
                                 </div>

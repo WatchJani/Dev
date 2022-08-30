@@ -1,6 +1,7 @@
 import { usePost } from "../../contexts/PostContext"
 import Styled from "./NewsContent.module.css"
 import Coment from "../Coment/Coment"
+import { Link } from "react-router-dom"
 
 const NewsContent = () => {
 
@@ -22,15 +23,18 @@ const NewsContent = () => {
             {/* title, who is made, tagovi */}
             <div className={Styled.PostInfo}>
                 {/* who is posted */}
+
                 <div className={Styled.PostBy}>
                     <div className={Styled.Posted}>
-                        <div className={Styled.Position}>
-                            {post.userId.teamId ? <img className={Styled.LogoBackGround} src={post.userId.teamId.profilImage} alt="" /> : undefined}
-                            {post.userId.teamId ? <img className={Styled.Logo} src={post.userId.profilImage} alt="" /> : <img className={Styled.JustUserImage} src={post.userId.profilImage} alt="" />}
-                        </div>
+                        <Link to={`/profil/${post.userId._id}`}>
+                            <div className={Styled.Position}>
+                                {post.userId.teamId ? <img className={Styled.LogoBackGround} src={post.userId.teamId.profilImage} alt="" /> : undefined}
+                                {post.userId.teamId ? <img className={Styled.Logo} src={post.userId.profilImage} alt="" /> : <img className={Styled.JustUserImage} src={post.userId.profilImage} alt="" />}
+                            </div>
+                        </Link>
                     </div>
                     <div className={Styled.PostedText}>
-                        {post.userId.teamId ? <p><b>{post.userId.userName}</b> for <span>{post.userId.teamId.name}</span></p> : <p><b>{post.userId.userName}</b></p>}
+                        {post.userId.teamId ? <p><Link to={`/profil/${post?.userId?._id}`}><b>{post.userId.userName}</b></Link> for <Link to={`/profil/${post.userId.teamId._id}`}><span>{post.userId.teamId.name}</span></Link></p> : <Link><p><b>{post.userId.userName}</b></p></Link>}
                         <p className={Styled.PostDate}>Posted on {getMonth(post.createAt)} {(new Date(post.createAt)).getDate()}</p>
                     </div>
                 </div>
@@ -51,9 +55,9 @@ const NewsContent = () => {
 
             {/* content */}
             <div className={Styled.Post} dangerouslySetInnerHTML={{ __html: post.post.replaceAll("&lt;", "<").replaceAll("&gt;", ">") }} />
-            
-                <Coment />
-           
+
+            <Coment />
+
         </div>
     )
 }
