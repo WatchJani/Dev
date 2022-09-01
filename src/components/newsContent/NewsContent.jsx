@@ -34,7 +34,7 @@ const NewsContent = () => {
                         </Link>
                     </div>
                     <div className={Styled.PostedText}>
-                        {post.userId.teamId ? <p><Link to={`/profil/${post?.userId?._id}`}><b>{post.userId.userName}</b></Link> for <Link to={`/profil/${post.userId.teamId._id}`}><span>{post.userId.teamId.name}</span></Link></p> : <Link><p><b>{post.userId.userName}</b></p></Link>}
+                        {post.userId.teamId ? <p><Link to={`/profil/${post?.userId?._id}`}><b>{post.userId.userName}</b></Link> for <span>{post.userId.teamId.name}</span></p> : <Link to={`/profil/${post?.userId?._id}`}><p><b>{post.userId.userName}</b></p></Link>}
                         <p className={Styled.PostDate}>Posted on {getMonth(post.createAt)} {(new Date(post.createAt)).getDate()}</p>
                     </div>
                 </div>
