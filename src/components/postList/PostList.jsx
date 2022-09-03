@@ -1,12 +1,16 @@
 import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import Styled from "./PostList.module.css"
 import SkeletonLoading from '../SkeletonLoading/SkeletonLoading'
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import { useInfiniteQuery } from 'react-query'
 import axios from '../../utils/axiosBackend'
+import { useUser } from '../../contexts/UserContext'
+import { Link } from 'react-router-dom'
 
 const PostList = () => {
+    const user = useUser()
+
+
 
     const fetchRepositories = async (page = 0) => {
         return axios.get(`/post?skip=${page * 5}`)
@@ -48,6 +52,8 @@ const PostList = () => {
         }
     }, [data])
 
+
+
     if (isLoading) return <SkeletonLoading />
 
     if (isError) return <p>{error}</p>
@@ -58,8 +64,8 @@ const PostList = () => {
             {
                 data.pages.map((page) =>
                     page.data.items.map((post, index) => (
-                        <Link to={post._id} key={post._id}>
-                            <div className={Styled.PostCard}>
+                        <Link to={post._id}>
+                            <div key={post._id} className={Styled.PostCard}>
                                 <img src={post.banner} alt={post.banner} className={index == 0 ? "Img" : "NoImg"} />
                                 <div className={Styled.PaddingPost}>
                                     <div className={Styled.PostListProfilInfo}>
@@ -104,7 +110,7 @@ const PostList = () => {
                                         </div>
                                         <div className={Styled.BoxTimeReading}>
                                             <p className={Styled.TimeForReading}>{post.timeToRead} min read</p>
-                                            <button onClick={() => { console.log("save") }} className={Styled.RealButton}>Save</button>
+                                            <button className={Styled.RealButton}>{post.save.includes(user?.data?.user?._id) ? <p>saved</p> : <p>save</p>}</button>
                                         </div>
                                     </div>
                                 </div>

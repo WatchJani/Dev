@@ -27,9 +27,11 @@
 
 .Header {
   padding: 8px 12px 0 12px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.Header button {
+.UserButton {
   background-color: transparent;
   padding: 4px;
   border: none;
@@ -39,9 +41,31 @@
   font-weight: 600;
 }
 
-.Header button:hover {
+.Delete {
+  color: rgb(190, 1, 1);
+  font-size: 20px;
+}
+
+.UserButton:hover {
   background-color: #f0f0f0;
   border-radius: 5px;
+}
+
+.DeleteButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  background-color: transparent;
+  border-radius: 5px;
+  border: none;
+  height: max-content;
+}
+
+.DeleteButton:hover {
+  background-color: red;
+  background-color: #f0f0f0;
+  transition: 200ms;
 }
 
 .Header span {

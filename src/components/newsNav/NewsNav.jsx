@@ -4,10 +4,11 @@ import { useState, useEffect } from "react";
 import { usePost } from "../../contexts/PostContext";
 import axios from "../../utils/axiosBackend";
 import { useUser } from "../../contexts/UserContext";
-
+import { useNavigate } from "react-router-dom";
 
 const NewsNav = () => {
 
+    const navigate = useNavigate()
     const { post } = usePost()
     const user = useUser()
 
@@ -23,6 +24,8 @@ const NewsNav = () => {
             setLike(isLiked ? like - 1 : like + 1)
             axios.put(`/post/like/${post._id}`)
             setIsLiked(!isLiked)
+        } else {
+            navigate("/login")
         }
     }
 
@@ -31,6 +34,8 @@ const NewsNav = () => {
             setSave(isSaved ? save - 1 : save + 1)
             axios.put(`/post/save/${post._id}`)
             setIsSaved(!isSaved)
+        } else {
+            navigate("/login")
         }
     }
 
@@ -39,6 +44,8 @@ const NewsNav = () => {
             setSupport(isSupported ? support - 1 : support + 1)
             axios.put(`/post/support/${post._id}`)
             setIsSupported(!isSupported)
+        } else {
+            navigate("/login")
         }
     }
 
